@@ -10,26 +10,20 @@ import java.io.FileReader;
 public class DayTwo {
 
     public static void main(String[] args) {
-
-        GetTotalPaperNeeded getTotalPaperNeeded = new GetTotalPaperNeeded(
-                new GetSmallestSide(),
-                new WorkOutTotalArea()
-        );
-
-        int totalPaperNeeded = 0;
-
         try (BufferedReader br = new BufferedReader(new FileReader(new File(System.getProperty("user.dir") + "/inputs/dayTwo.txt")))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] sizes = line.split("x");
-                totalPaperNeeded += getTotalPaperNeeded.getTotal(Integer.parseInt(sizes[0]), Integer.parseInt(sizes[1]), Integer.parseInt(sizes[2]));
-            }
+
+            // Get Total area of wrapping paper to be ordered
+            SolvePartOne solvePartOne = new SolvePartOne(br);
+            solvePartOne.solve();
+
+            // Get total ribbon to be ordered
+            SolvePartTwo solvePartTwo = new SolvePartTwo(br);
+            solvePartTwo.solve();
+
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(1);
         }
-
-        System.out.println("Total needed to be ordered: " + totalPaperNeeded);
     }
 
 }
