@@ -1,15 +1,14 @@
-package Day2;
+package AdventOfCode.Day2;
 
-import Day2.UseCase.*;
-import Day2.UseCase.GetSmallestSide;
-import Day2.UseCase.WorkOutTotalArea;
+import AdventOfCode.Day2.UseCase.GetSmallestSide;
+import AdventOfCode.Day2.UseCase.WorkOutTotalArea;
 
 /**
  * Created by pintsizedev
  */
-public class GetTotalPaperNeeded implements Day2.UseCase.GetTotalPaperNeeded {
+public class GetTotalPaperNeeded implements AdventOfCode.Day2.UseCase.GetTotalPaperNeeded {
 
-    Day2.UseCase.GetSmallestSide getSmallestSide;
+    AdventOfCode.Day2.UseCase.GetSmallestSide getSmallestSide;
     WorkOutTotalArea workOutTotalArea;
 
     public GetTotalPaperNeeded(GetSmallestSide getSmallestSide, WorkOutTotalArea workOutTotalArea) {

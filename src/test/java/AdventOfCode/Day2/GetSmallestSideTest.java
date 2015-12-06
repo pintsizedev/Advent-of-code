@@ -1,19 +1,19 @@
-package Day2;
+package AdventOfCode.Day2;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 
 /**
  * Created by pintsizedev
  */
 public class GetSmallestSideTest extends AbstractPresentTest {
 
-    Day2.UseCase.GetSmallestSide getSmallest;
+    GetSmallestSide getSmallest;
 
     private void assertSmallestSide(int expectedArea) {
-        assertEquals(expectedArea, getSmallest.getSmallestSide(length, width, height));
+        Assert.assertEquals(expectedArea, getSmallest.getSmallestSide(length, width, height));
     }
 
     @Before

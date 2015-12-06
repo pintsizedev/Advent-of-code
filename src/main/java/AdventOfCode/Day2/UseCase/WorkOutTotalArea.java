@@ -1,4 +1,4 @@
-package Day2.UseCase;
+package AdventOfCode.Day2.UseCase;
 
 /**
  * Created by pintsizedev

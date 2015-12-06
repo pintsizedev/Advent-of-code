@@ -1,19 +1,18 @@
-package Day2;
+package AdventOfCode.Day2;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by pintsizedev
  */
 public class WorkOutTotalAreaTest extends AbstractPresentTest {
 
-    Day2.UseCase.WorkOutTotalArea totalArea;
+    AdventOfCode.Day2.UseCase.WorkOutTotalArea totalArea;
 
     private void assertArea(int expectedArea) {
-        assertEquals(expectedArea, totalArea.getTotalArea(length, width, height));
+        Assert.assertEquals(expectedArea, totalArea.getTotalArea(length, width, height));
     }
 
     private int calculateExpectedArea() {

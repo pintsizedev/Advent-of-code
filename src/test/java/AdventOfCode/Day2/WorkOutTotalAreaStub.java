@@ -1,11 +1,9 @@
-package Day2;
-
-import Day2.UseCase.*;
+package AdventOfCode.Day2;
 
 /**
  * Created by pintsizedev
  */
-class WorkOutTotalAreaStub implements Day2.UseCase.WorkOutTotalArea {
+class WorkOutTotalAreaStub implements AdventOfCode.Day2.UseCase.WorkOutTotalArea {
     @Override
     public int getTotalArea(int length, int width, int height) {
         return GetTotalPaperNeededTest.TOTAL_AREA;
