@@ -16,12 +16,12 @@ public class GetTotalPaperNeededTest {
 
     @Before
     public void setUp() throws Exception {
-        totalNeeded = new GetTotalPaperNeeded(new GetSmallestSideStub(), new WorkOutTotalAreaStub());
+        totalNeeded = new GetTotalPaperNeeded(new GetSmallestSurfaceAreaStub(), new WorkOutTotalAreaStub());
 
     }
 
     @Test
     public void GivenTotalAreaAndSmallestSide_WhenGettingTotalPaperNeeded_ThenReturnTotalAreaPlusSmallestSide() {
-        Assert.assertEquals(SMALLEST_SIDE + TOTAL_AREA, totalNeeded.getTotal(0,0,0));
+        Assert.assertEquals(SMALLEST_SIDE + TOTAL_AREA, totalNeeded.getTotal(new Present(0,0,0)));
     }
 }
