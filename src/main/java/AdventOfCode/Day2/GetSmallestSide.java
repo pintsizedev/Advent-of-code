@@ -1,8 +1,8 @@
-package Day2;
+package AdventOfCode.Day2;
 
 import java.util.Arrays;
 
-public class GetSmallestSide implements Day2.UseCase.GetSmallestSide {
+public class GetSmallestSide implements AdventOfCode.Day2.UseCase.GetSmallestSide {
 
     @Override
     public int getSmallestSide(int length, int width, int height) {

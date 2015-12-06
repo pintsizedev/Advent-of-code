@@ -1,7 +1,7 @@
-package Day2;
+package AdventOfCode.Day2;
+
 
 import AdventOfCode.Solver;
-import Day2.UseCase.*;
 
 import java.io.BufferedReader;
 
@@ -12,7 +12,7 @@ public class SolvePartOne implements Solver {
 
     private BufferedReader reader;
 
-    private Day2.UseCase.GetTotalPaperNeeded getTotalPaperNeeded;
+    private AdventOfCode.Day2.UseCase.GetTotalPaperNeeded getTotalPaperNeeded;
 
     public SolvePartOne(BufferedReader reader) {
         this.reader = reader;

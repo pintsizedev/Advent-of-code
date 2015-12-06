@@ -1,4 +1,4 @@
-package Day2;
+package AdventOfCode.Day2;
 
 import AdventOfCode.Solver;
 
