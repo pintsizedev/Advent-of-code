@@ -1,6 +1,7 @@
 package AdventOfCode.Day2;
 
-import AdventOfCode.Day2.UseCase.GetSmallestSide;
+import AdventOfCode.Day2.Entity.*;
+import AdventOfCode.Day2.UseCase.GetSmallestSurfaceArea;
 import AdventOfCode.Day2.UseCase.WorkOutTotalArea;
 
 /**
@@ -8,18 +9,18 @@ import AdventOfCode.Day2.UseCase.WorkOutTotalArea;
  */
 public class GetTotalPaperNeeded implements AdventOfCode.Day2.UseCase.GetTotalPaperNeeded {
 
-    AdventOfCode.Day2.UseCase.GetSmallestSide getSmallestSide;
+    GetSmallestSurfaceArea getSmallestSurfaceArea;
     WorkOutTotalArea workOutTotalArea;
 
-    public GetTotalPaperNeeded(GetSmallestSide getSmallestSide, WorkOutTotalArea workOutTotalArea) {
-        this.getSmallestSide = getSmallestSide;
+    public GetTotalPaperNeeded(GetSmallestSurfaceArea getSmallestSurfaceArea, WorkOutTotalArea workOutTotalArea) {
+        this.getSmallestSurfaceArea = getSmallestSurfaceArea;
         this.workOutTotalArea = workOutTotalArea;
     }
 
     @Override
-    public int getTotal(int length, int width, int height) {
-        int smallestSide = this.getSmallestSide.getSmallestSide(length, width, height);
-        int totalArea = this.workOutTotalArea.getTotalArea(length, width, height);
+    public int getTotal(AdventOfCode.Day2.Entity.Present present) {
+        int smallestSide = this.getSmallestSurfaceArea.getSmallestSide(present);
+        int totalArea = this.workOutTotalArea.getTotalArea(present);
         return smallestSide + totalArea;
     }
 }

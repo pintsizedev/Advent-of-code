@@ -5,8 +5,8 @@ import AdventOfCode.Day2.Entity.Present;
 /**
  * Created by pintsizedev
  */
-public interface GetTotalPaperNeeded {
+public interface GetSmallestSurfaceArea {
 
-    int getTotal(Present present);
+    int getSmallestSide(Present present);
 
 }

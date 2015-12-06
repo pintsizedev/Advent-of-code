@@ -1,6 +1,7 @@
 package AdventOfCode.Day2;
 
 
+import AdventOfCode.Day2.Entity.*;
 import AdventOfCode.Solver;
 
 import java.io.BufferedReader;
@@ -17,7 +18,7 @@ public class SolvePartOne implements Solver {
     public SolvePartOne(BufferedReader reader) {
         this.reader = reader;
         this.getTotalPaperNeeded = new GetTotalPaperNeeded(
-                new GetSmallestSide(),
+                new GetSmallestSurfaceArea(),
                 new WorkOutTotalArea()
         );
     }
@@ -30,7 +31,11 @@ public class SolvePartOne implements Solver {
         try {
             while ((line = reader.readLine()) != null) {
                 String[] sizes = line.split("x");
-                totalPaperNeeded += getTotalPaperNeeded.getTotal(Integer.parseInt(sizes[0]), Integer.parseInt(sizes[1]), Integer.parseInt(sizes[2]));
+
+                AdventOfCode.Day2.Entity.Present present = new Present(
+                        Integer.parseInt(sizes[0]), Integer.parseInt(sizes[1]), Integer.parseInt(sizes[2]));
+
+                totalPaperNeeded += getTotalPaperNeeded.getTotal(present);
             }
         } catch (Exception e) {
             System.exit(1);

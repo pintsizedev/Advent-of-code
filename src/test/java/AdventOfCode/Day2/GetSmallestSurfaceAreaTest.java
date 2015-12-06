@@ -8,52 +8,52 @@ import org.junit.Test;
 /**
  * Created by pintsizedev
  */
-public class GetSmallestSideTest extends AbstractPresentTest {
+public class GetSmallestSurfaceAreaTest {
 
-    GetSmallestSide getSmallest;
+    GetSmallestSurfaceArea getSmallest;
 
-    private void assertSmallestSide(int expectedArea) {
-        Assert.assertEquals(expectedArea, getSmallest.getSmallestSide(length, width, height));
+    private void assertSmallestSide(int expectedArea, Present present) {
+        Assert.assertEquals(expectedArea, getSmallest.getSmallestSide(present));
     }
 
     @Before
     public void setUp() throws Exception {
-        getSmallest = new GetSmallestSide();
+        getSmallest = new GetSmallestSurfaceArea();
     }
 
     @Test
     public void givenSidesAllOfLengthOne_whenGettingSmallestSize_returnOne() {
-        this.setSizes(1, 1, 1);
-        assertSmallestSide(1);
+        assertSmallestSide(1 ,new Present(1, 1, 1));
     }
 
     @Test
     public void GivenAllButOneSideIsOfLengthOne_WhenGettingSmallestSize_ThenReturnOne() {
-        this.setSizes(1,1,10);
-        assertSmallestSide(1);
+        assertSmallestSide(1, new Present(1, 1, 10));
     }
 
     @Test
     public void GivenOneLengthOneAndOtherSizesTen_WhenGettingSmallestSize_ThenReturnTen() {
-        this.setSizes(1, 10, 10);
-        assertSmallestSide(10);
+        assertSmallestSide(10, new Present(1, 10, 10));
     }
 
     @Test
     public void GivenLengthAndWidthSmallestAndBothDifferent_WhenGettingSmallestSize_ThenReturnLengthTimesWidth() {
-        this.setSizes(1, 2, 10);
-        assertSmallestSide(length * width);
+        int length = 1;
+        int width = 2;
+        assertSmallestSide(length * width, new Present(length, width, 10) );
     }
 
     @Test
     public void GivenLengthAndHeightSmallestAndBothDifferent_WhenGettingSmallestSize_ThenReturnLengthTimesHeight() {
-        this.setSizes(1, 10, 2);
-        assertSmallestSide(length * height);
+        int length = 1;
+        int height = 2;
+        assertSmallestSide(length * height, new Present(length, 10, height));
     }
 
     @Test
     public void GivenWidthAndHeightSmallestAndBothDifferent_WhenGettingSmallestSize_ThenReturnWidthTimesHeight() {
-        this.setSizes(10, 1, 2);
-        assertSmallestSide(width * height);
+        int width = 1;
+        int height = 2;
+        assertSmallestSide(width * height, new Present(10, width, height));
     }
 }

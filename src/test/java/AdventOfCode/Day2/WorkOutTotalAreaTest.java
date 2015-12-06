@@ -7,15 +7,15 @@ import org.junit.Test;
 /**
  * Created by pintsizedev
  */
-public class WorkOutTotalAreaTest extends AbstractPresentTest {
+public class WorkOutTotalAreaTest {
 
     AdventOfCode.Day2.UseCase.WorkOutTotalArea totalArea;
 
-    private void assertArea(int expectedArea) {
-        Assert.assertEquals(expectedArea, totalArea.getTotalArea(length, width, height));
+    private void assertArea(int expectedArea, Present present) {
+        Assert.assertEquals(expectedArea, totalArea.getTotalArea(present));
     }
 
-    private int calculateExpectedArea() {
+    private int calculateExpectedArea(int length, int width, int height) {
         return (2 * length * width) + (2 * length * height) + (2 * width * height);
     }
 
@@ -26,14 +26,15 @@ public class WorkOutTotalAreaTest extends AbstractPresentTest {
 
     @Test
     public void GivenAllSizesOne_WhenGettingTotalArea_ThenReturnSix() {
-        this.setSizes(1, 1, 1);
-        assertArea(6);
+        assertArea(6, new Present(1,1,1));
     }
 
     @Test
     public void GivenAllSizesDifferent_WhenGettingTotalArea_ThenReturnCorrectTotal() {
-        this.setSizes(1, 2, 3);
-        assertArea(calculateExpectedArea());
+        int length = 1;
+        int width = 2;
+        int height = 3;
+        assertArea(calculateExpectedArea(length, width, height), new Present(length, width, height));
     }
 
 }
